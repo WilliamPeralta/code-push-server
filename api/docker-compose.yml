@@ -6,6 +6,7 @@ services:
     container_name: redis
     ports:
       - "${REDIS_PORT:-6379}:6379"
+    command: redis-server --appendonly yes
     environment:
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
@@ -16,8 +17,8 @@ services:
   code-push:
     build: .
     container_name: code-push-server
-    ports:
-      - "${SERVER_PORT:-3000}:3000"
+#    ports:
+#      - "${SERVER_PORT:-3000}:3000"
     environment:
       - NODE_ENV=${NODE_ENV:-production}
       - REDIS_HOST=redis
