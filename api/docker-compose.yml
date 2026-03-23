@@ -4,8 +4,8 @@ services:
   redis:
     image: redis:latest
     container_name: redis
-    ports:
-      - "${REDIS_PORT:-6379}:6379"
+#    ports:
+#      - "${REDIS_PORT:-6379}:6379"
     command: redis-server --appendonly yes
     environment:
       - REDIS_HOST=${REDIS_HOST}
